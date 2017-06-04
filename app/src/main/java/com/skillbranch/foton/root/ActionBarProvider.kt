@@ -1,4 +1,4 @@
-package com.skillbranch.foton
+package com.skillbranch.foton.root
 
 import android.support.v7.app.ActionBar
 

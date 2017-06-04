@@ -1,4 +1,4 @@
-package com.skillbranch.foton
+package com.skillbranch.foton.root
 
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -8,14 +8,11 @@ import android.support.v7.app.AppCompatActivity
 import com.bluelinelabs.conductor.Conductor
 import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
-import com.skillbranch.foton.controllers.SplashController
-import com.skillbranch.foton.controllers.base.DependencyManager
+import com.skillbranch.foton.R
+import com.skillbranch.foton.splash.SplashController
+import com.skillbranch.foton.core.base.ScopeManager
 import kotlinx.android.synthetic.main.activity_root.*
-import mortar.MortarScope
 import mortar.bundler.BundleServiceRunner
-
-
-
 
 class RootActivity : AppCompatActivity(), ActionBarProvider {
     private lateinit var router: Router
@@ -35,9 +32,11 @@ class RootActivity : AppCompatActivity(), ActionBarProvider {
         if (!router.hasRootController())
             router.setRoot(RouterTransaction.with(SplashController()))
 
-        router.addChangeListener(DependencyManager())
+        router.addChangeListener(ScopeManager())
 
-        BundleServiceRunner.getBundleServiceRunner(this).onCreate(savedInstanceState)
+
+
+//        BundleServiceRunner.getBundleServiceRunner(this).onCreate(savedInstanceState)
 //        MortarScope.getDaggerComponent<RootComponent>(this).inject(this)
 
     }
