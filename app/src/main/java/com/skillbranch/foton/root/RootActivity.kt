@@ -36,10 +36,12 @@ class RootActivity : AppCompatActivity(), ActionBarProvider {
 
 
 
-//        BundleServiceRunner.getBundleServiceRunner(this).onCreate(savedInstanceState)
+        BundleServiceRunner.getBundleServiceRunner(this).onCreate(savedInstanceState)
 //        MortarScope.getDaggerComponent<RootComponent>(this).inject(this)
 
     }
+
+
 
     override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
         super.onSaveInstanceState(outState, outPersistentState)

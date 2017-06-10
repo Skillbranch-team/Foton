@@ -8,6 +8,12 @@ import java.util.*
 object Injector {
     const val SERVICE_NAME = "DAGGER_SERVICE"
 
+    private var rootScope: MortarScope? = null
+
+    fun getSystemService(name: String): Any? {
+        return rootScope?.getService(name)
+    }
+
     fun createScreenContext(rootContext: Context, dependencyKey: DependencyKey<*>): Context {
         var context = rootContext
         val keys = ArrayList<DependencyKey<*>>()
